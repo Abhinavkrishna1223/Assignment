@@ -3,9 +3,11 @@ const server = express();
 const port = 7000 || process.env.PORT;
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 server.use(express.json());
 server.use(bodyParser.json());
+server.use(cors());
 
 const bookRouter = require("./routes/BooksRouter");
 

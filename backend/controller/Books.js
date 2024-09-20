@@ -19,6 +19,16 @@ exports.getBooks = async (req, res) => {
     }
 };
 
+exports.bookById = async (req, res) => {
+    const {id} = req.params;
+    try {
+        const bookDetails = await Books.findById(id);
+        res.status(200).json(bookDetails);
+    } catch (error) {
+        res.status(500).json({ err: error });
+    }
+};
+
 exports.updateBook = async (req, res) => {
     const {id} = req.params;
     try {
