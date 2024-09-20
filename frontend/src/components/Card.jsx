@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 const Card = ({ book }) => {
     const navigate = useNavigate();
     return (
-        <div className=' flex'>
+        <div className=' flex items-center'>
             {book?.length ? book?.map((el, indx) => {
                 return (
                     <div className="max-w-sm rounded overflow-hidden shadow-lg m-8" key={el?._id}>
@@ -19,13 +19,17 @@ const Card = ({ book }) => {
                             <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">By-{el?.author}</span>
                             <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{el?.genre}</span>
                         </div>
-                        <button class="bg-green-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onClick={()=> navigate(`/update/${el?._id}`) }>
+                        <button class="bg-green-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onClick={() => navigate(`/update/${el?._id}`)}>
                             Edit
                         </button>
                     </div>
                 )
 
             }) : <h3>No Books Data Available Right Now</h3>}
+
+            <button class=" h-12 bg-green-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onClick={() => navigate(`/create`)}>
+                Go to Create
+            </button>
         </div>
     )
 }

@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import axios from "axios";
 import FormComponent from "./components/Form";
+import CreateBookForm from "./components/CreateBook";
 
 function App() {
   const [book, setBook] = useState([]);
@@ -33,6 +34,10 @@ function App() {
     {
       path: "/update/:id",
       element: <FormComponent/>
+    },
+    {
+      path:"/create",
+      element:(<CreateBookForm/>)
     }
   ]);
 
